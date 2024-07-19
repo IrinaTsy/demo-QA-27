@@ -40,26 +40,26 @@ public class TextBoxTests {
     void fillStudentRegistrationForm() {
 
         open("/automation-practice-form");
-        $("#firstName").setValue("Alex"); //вместо id можно указать #
+        $("#firstName").setValue("Alex"); // #firstName=[id=firstName]
         $("#lastName").setValue("Ivanov");
         $("#userEmail").setValue("Alex@ivanov.com");
         $("#gender-radio-1+label").click();
         $("#userNumber").setValue("8888888888");
         $("#dateOfBirth #dateOfBirthInput").click();
-        $(".react-datepicker__month-select").click();
+        $(".react-datepicker__month-select").click(); //календарь начало
         $(".react-datepicker__month-select").selectOption("December");
         $(".react-datepicker__month-select").click();
         $(".react-datepicker__year-select").click();
         $(".react-datepicker__year-select").selectOption("1979");
         $(".react-datepicker__year-select").click();
-        $(".react-datepicker__day--030").click();
+        $(".react-datepicker__day--030").click(); //календарь конец  .react-datepicker__day--030 -> [class=react-datepicker__day--030]
         $("#subjectsInput").setValue("Biology").pressEnter();
         $("#hobbies-checkbox-1+label").click();
         $("#uploadPicture").scrollIntoView(true);
         $("#uploadPicture").uploadFromClasspath("picture.jpg");
         $("#currentAddress").setValue("Russia");
-        $("#react-select-3-input").setValue("Haryana").pressEnter();
-        $("#react-select-4-input").setValue("Karnal").pressEnter();
+        $("#react-select-3-input").setValue("Haryana").pressEnter(); //выпадающий список
+        $("#react-select-4-input").setValue("Karnal").pressEnter(); //выпадающий список
         $("#submit").click();
 
         $(".table-responsive").shouldHave(text("Alex Ivanov"));
@@ -73,6 +73,6 @@ public class TextBoxTests {
         $(".table-responsive").shouldHave(text("Russia"));
         $(".table-responsive").shouldHave(text("Haryana Karnal"));
     }
-        
+
 
     }
