@@ -3,8 +3,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
 import static com.codeborne.selenide.Condition.text;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class TextBoxTests {
 
@@ -40,6 +40,8 @@ public class TextBoxTests {
     void fillStudentRegistrationForm() {
 
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");//отключение баннера
+        executeJavaScript("$('footer').remove()");//отключение футера
         $("#firstName").setValue("Alex"); // #firstName=[id=firstName]
         $("#lastName").setValue("Ivanov");
         $("#userEmail").setValue("Alex@ivanov.com");

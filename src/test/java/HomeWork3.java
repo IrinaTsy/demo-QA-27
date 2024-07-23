@@ -26,7 +26,7 @@ public class HomeWork3 {
         $("#userEmail").setValue("Alex@ivanov.com");
         $("#gender-radio-1+label").click();
         $("#userNumber").setValue("8888888888");
-        $("#dateOfBirth #dateOfBirthInput").click();
+        $("#dateOfBirthInput").click();
         $(".react-datepicker__month-select").click();
         $(".react-datepicker__month-select").selectOption("December");
         $(".react-datepicker__month-select").click();
