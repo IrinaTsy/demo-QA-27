@@ -1,12 +1,14 @@
 import com.codeborne.selenide.*;
+import com.codeborne.selenide.collections.TextsInAnyOrder;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Keys;
 
 import javax.annotation.Nonnull;
+import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.Duration;
 
-import static com.codeborne.selenide.CollectionCondition.size;
+import static com.codeborne.selenide.CollectionCondition.*;
 import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
@@ -140,7 +142,7 @@ public class Snippets {
         $("").shouldHave(cssValue("font-size","12"));//размеры и стиль текста
         $("").shouldHave(value("25"));
         $("").shouldHave(exactValue("25"));
-        $("").shouldBe(empty);
+        //$("").shouldBe(empty);
 
         $("").shouldHave(attribute("disabled"));
         $("").shouldHave(attribute("name","example"));
@@ -160,7 +162,7 @@ public class Snippets {
     void collections_examples() {
 
         $$("div");
-        $$x("//div")
+        $$x("//div");
 
         //выбор
         $$("div").filterBy(text("123")).shouldHave(size(1));
@@ -178,11 +180,38 @@ public class Snippets {
         $$("div").shouldHave(size(8));
         $$("div").shouldBe(CollectionCondition.empty);
 
+        $$("div").shouldHave(texts("Alfa","Beta","Gamma"));
+        $$("div").shouldHave(exactTexts("Alfa","Beta","Gamma"));
+
+        $$("div").shouldHave(textsInAnyOrder("Beta","Gamma","Alfa")); //игнорирует расположение элементов текста
+        $$("div").shouldHave(exactTextsCaseSensitiveInAnyOrder("Beta","Gamma","Alfa"));
+
+        $$("div").shouldHave(itemWithText("Gamma"));//когда необходимо убедиться, что есть один элемент с каким-то текстом
+
+        $$("div").shouldHave(sizeGreaterThan(0));
+        $$("div").shouldHave(sizeGreaterThanOrEqual(1));
+        $$("div").shouldHave(sizeLessThan(3));
+        $$("div").shouldHave(sizeLessThanOrEqual(2));
 
     }
 
-    void file_operations_examples() throws FileNotFoundException {}
+    void file_operations_examples() throws FileNotFoundException {
 
-    void javascript_examples() {}
+        File file1 = $("a.fileLink").download();
+        File file2 = $("div").download(DownloadOptions.using(FileDownloadMode.FOLDER));
+
+        File file = new File("src/Test/resousces/readme.txt");
+        $("#file-upload").uploadFile(file);
+        $("#file-upload").uploadFromClasspath("readme.txt");
+        $("uploadButton").click();
+    }
+
+    void javascript_examples() {
+
+        executeJavaScript("alert('selenide')");
+        executeJavaScript("alert(arguments[0]+arguments[1])","abc",12);
+        long two = executeJavaScript("return arguments[0]*arguments[1];", 6,7);
+
+    }
 
 }
