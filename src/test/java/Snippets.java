@@ -15,6 +15,8 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class Snippets {
 
+    //команда $ ищет один элемент, команда $$ ищет все элементы
+
     void browser_common_examples() {
 
         open("https://google.com"); //абсолютный URL
