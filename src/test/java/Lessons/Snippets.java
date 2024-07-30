@@ -1,9 +1,9 @@
+package Lessons;
+
 import com.codeborne.selenide.*;
-import com.codeborne.selenide.collections.TextsInAnyOrder;
 import org.openqa.selenium.Cookie;
 import org.openqa.selenium.Keys;
 
-import javax.annotation.Nonnull;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.time.Duration;
@@ -149,6 +149,15 @@ public class Snippets {
         $("").shouldHave(attribute("disabled"));
         $("").shouldHave(attribute("name","example"));
         $("").shouldHave(attributeMatching("name","[8-9]abc$"));
+
+        //название аттрибута начинается со слова order, а что находится дальше - неважно
+        $("").shouldHave(attributeMatching("name","^order"));
+
+        //нажать на элемент, у которого атрибут по имени name начинается со слова order
+        $("[name^=order]").click();
+
+        //нажать на элемент, у которого атрибут по имени name заканчивается словом order
+        $("[name$=order]").click();
 
         $("").shouldBe(checked);//для чекбоксов
 
