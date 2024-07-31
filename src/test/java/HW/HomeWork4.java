@@ -1,4 +1,4 @@
-package HW;
+package hw;
 
 import org.junit.jupiter.api.Test;
 

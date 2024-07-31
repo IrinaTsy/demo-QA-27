@@ -1,4 +1,4 @@
-package Lessons;
+package lessons;
 
 import com.codeborne.selenide.*;
 import org.openqa.selenium.Cookie;

@@ -1,4 +1,4 @@
-package Lessons;
+package lessons;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selenide;

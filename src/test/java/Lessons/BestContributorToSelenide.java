@@ -1,4 +1,4 @@
-package Lessons;
+package lessons;
 
 import com.codeborne.selenide.Selectors;
 import org.junit.jupiter.api.Test;
