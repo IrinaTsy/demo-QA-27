@@ -142,6 +142,7 @@ public class Snippets {
 
         $("").shouldHave(cssClass("red"));//содержится ли в элементе класс "red"
         $("").shouldHave(cssValue("font-size","12"));//размеры и стиль текста
+        $("").shouldHave(cssValue("border-color","rgb(220, 53, 69)")); //рамка поля изменилась на красный цвет
         $("").shouldHave(value("25"));
         $("").shouldHave(exactValue("25"));
         //$("").shouldBe(empty);
