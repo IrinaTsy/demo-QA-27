@@ -18,7 +18,7 @@ public class HomeWork5 {
 
     @Test
 
-    void hoverSolutions(){
+    void hoverSolutionsTest(){
 
         open("https://github.com");
         $(withTagAndText("button", "Solutions")).hover();

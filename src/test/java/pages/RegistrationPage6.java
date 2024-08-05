@@ -12,18 +12,18 @@ import static com.codeborne.selenide.Selenide.executeJavaScript;
 
 public class RegistrationPage6 {
 
-    private SelenideElement firstNameInput = $("#firstName");
-    private SelenideElement lastNameInput = $("#lastName");
-    private SelenideElement userEmailInput = $("#userEmail");
-    private SelenideElement genderWrapper = $("#genterWrapper");
-    private SelenideElement userNumberInput = $("#userNumber");
-    private SelenideElement calendarInput = $("#dateOfBirthInput");
-    private SelenideElement subjectsInput = $("#subjectsInput");
-    private SelenideElement hobbiesInput = $("#hobbies-checkbox-1+label");
-    private SelenideElement uploadPicture = $("#uploadPicture");
-    private SelenideElement addressInput = $("#currentAddress");
-    private SelenideElement submitButton = $("#submit");
-    private SelenideElement emailWrapper = $("#userEmail");
+    private final SelenideElement firstNameInput = $("#firstName"),
+                            lastNameInput = $("#lastName"),
+                            userEmailInput = $("#userEmail"),
+                            genderWrapper = $("#genterWrapper"),
+                            userNumberInput = $("#userNumber"),
+                            calendarInput = $("#dateOfBirthInput"),
+                            subjectsInput = $("#subjectsInput"),
+                            hobbiesInput = $("#hobbies-checkbox-1+label"),
+                            uploadPicture = $("#uploadPicture"),
+                            addressInput = $("#currentAddress"),
+                            submitButton = $("#submit"),
+                            emailWrapper = $("#userEmail");
 
 
 
@@ -35,6 +35,16 @@ public class RegistrationPage6 {
     public RegistrationPage6 openForm(){
 
         open("/automation-practice-form");
+        executeJavaScript("$('#fixedban').remove()");
+        executeJavaScript("$('footer').remove()");
+
+        return this;
+
+    }
+
+    public RegistrationPage6 executeBanners(){
+
+
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
 

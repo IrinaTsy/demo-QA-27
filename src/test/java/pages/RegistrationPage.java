@@ -14,13 +14,13 @@ public class RegistrationPage {
 
     //public static String firstNameLocator = "#firstName";
     //public static SelenideElement firstNameInput = $("#firstName");
-    private SelenideElement firstNameInput = $("#firstName");
-    private SelenideElement lastNameInput = $("#lastName");
-    private SelenideElement userEmailInput = $("#userEmail");
-    private SelenideElement genderWrapper = $("#genterWrapper");
-    private SelenideElement userNumberInput = $("#userNumber");
-    private SelenideElement dateBirthInput = $("#userNumber");
-    private SelenideElement calendarInput = $("#dateOfBirthInput");
+    private SelenideElement firstNameInput = $("#firstName"),
+                             lastNameInput = $("#lastName"),
+                             userEmailInput = $("#userEmail"),
+                             genderWrapper = $("#genterWrapper"),
+                             userNumberInput = $("#userNumber"),
+                             dateBirthInput = $("#userNumber"),
+                             calendarInput = $("#dateOfBirthInput");
 
     CalendarComponents calendarComponents = new CalendarComponents();
 

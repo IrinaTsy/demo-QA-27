@@ -12,11 +12,11 @@ public class HomeWork6 extends TestBase6 {
     RegistrationPage6 registrationPage = new RegistrationPage6();
 
     @Test
-    void SuccessfulFillStudentRegistrationFormTest() {
+    void successfulFillStudentRegistrationFormTest() {
 
 
         registrationPage.openForm()
-
+                .executeBanners()
                 .setFirstName("Alex")
                 .setLastName("Ivanov")
                 .setEmail("Alex@ivanov.com")
@@ -45,7 +45,7 @@ public class HomeWork6 extends TestBase6 {
 
     @Test
 
-    void SuccessfulFillStudentRegistrationShortFormTest(){
+    void successfulFillStudentRegistrationShortFormTest(){
 
         registrationPage.openForm()
 

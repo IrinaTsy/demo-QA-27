@@ -1,21 +1,44 @@
-package hw;
+package lessons;
 
-import com.codeborne.selenide.Configuration;
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
+import pages.RegistrationPage;
 import org.junit.jupiter.api.Test;
 
+//import static Pages.RegistrationPage.firstNameLocator;
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.*;
+import static testdata.dataRegistrationPage.*;
 
 
-public class HomeWork3 {
+public class PO1withTestData extends TestBase {
 
-    @BeforeAll
-    static void BeforeAll() {
-        Configuration.browserSize = "1920x1080";
-        Configuration.baseUrl = "https://demoqa.com";
-        Configuration.pageLoadStrategy = "eager";
-    }
+    //подход 1
+    //public static final String firstName = "Alex", // setValue("Alex")
+           // lastName = "Ivanov",
+            //userEmail= "Alex@ivanov.com";
+
+    //подход 2
+    //String firstName = "Alex", // setValue("Alex")
+          //  lastName = "Ivanov",
+          //  userEmail= "Alex@ivanov.com";
+
+    //подход 3
+    //static String firstName, // setValue("Alex")
+            //lastName,
+           // userEmail;
+
+    //подход 4
+    //@BeforeEach
+    //void PrepareTestData(){
+
+      //  firstName = "Alex";
+       // lastName = "Ivanov";
+       // userEmail= "Alex@ivanov.com";
+
+    //}
+
+    //подход 5
+    //объявить в TestBase
 
     @Test
     void fillStudentRegistrationFormTest() {
@@ -23,9 +46,13 @@ public class HomeWork3 {
         open("/automation-practice-form");
         executeJavaScript("$('#fixedban').remove()");
         executeJavaScript("$('footer').remove()");
-        $("#firstName").setValue("Alex");
-        $("#lastName").setValue("Ivanov");
-        $("#userEmail").setValue("Alex@ivanov.com");
+
+        //$("#firstName").setValue("Alex");
+        $("#firstName").setValue(firstName);// firstName взят из класса dataRegistrationPage
+        //$("#lastName").setValue("Ivanov");
+        $("#lastName").setValue(lastName);
+        //$("#userEmail").setValue("Alex@ivanov.com");
+        $("#userEmail").setValue(userEmail);
         $("#gender-radio-1+label").click();
         $("#userNumber").setValue("8888888888");
         $("#dateOfBirthInput").click();
@@ -45,7 +72,8 @@ public class HomeWork3 {
         $("#submit").click();
 
         $(".table-responsive").shouldHave(text("Alex Ivanov"));
-        $(".table-responsive").shouldHave(text("Alex@ivanov.com"));
+        //$(".table-responsive").shouldHave(text("Alex@ivanov.com"));
+        $(".table-responsive").shouldHave(text(userEmail));
         $(".table-responsive").shouldHave(text("Male"));
         $(".table-responsive").shouldHave(text("8888888888"));
         $(".table-responsive").shouldHave(text("30 November,1979"));
@@ -54,6 +82,7 @@ public class HomeWork3 {
         $(".table-responsive").shouldHave(text("picture.jpg"));
         $(".table-responsive").shouldHave(text("Russia"));
         $(".table-responsive").shouldHave(text("Haryana Karnal"));
+
     }
 
 }
