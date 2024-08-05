@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Test;
 import static com.codeborne.selenide.Selenide.$;
 
 
-public class PO1 extends TestBase{
+public class PO1 extends TestBase {
 
     RegistrationPage registrationPage = new RegistrationPage();
 

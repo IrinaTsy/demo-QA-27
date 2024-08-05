@@ -1,7 +1,5 @@
 package lessons;
 
-import org.junit.jupiter.api.BeforeEach;
-import pages.RegistrationPage;
 import org.junit.jupiter.api.Test;
 
 //import static Pages.RegistrationPage.firstNameLocator;
