@@ -35,8 +35,6 @@ public class RegistrationPage6 {
     public RegistrationPage6 openForm(){
 
         open("/automation-practice-form");
-        executeJavaScript("$('#fixedban').remove()");
-        executeJavaScript("$('footer').remove()");
 
         return this;
 
