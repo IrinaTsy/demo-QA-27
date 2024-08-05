@@ -48,7 +48,7 @@ public class HomeWork6 extends TestBase6 {
     void successfulFillStudentRegistrationShortFormTest(){
 
         registrationPage.openForm()
-
+                .executeBanners()
                 .setFirstName("Noa")
                 .setLastName("Ivanova")
                 .setEmail("Noa@ivanova.com")
@@ -75,7 +75,7 @@ public class HomeWork6 extends TestBase6 {
     void unsuccesfulFillStudentRegistrationShortFormTest(){
 
         registrationPage.openForm()
-
+                .executeBanners()
                 .setFirstName("Alex")
                 .setLastName("Ivanov")
                 .setEmail("Alex@ivanov.")
