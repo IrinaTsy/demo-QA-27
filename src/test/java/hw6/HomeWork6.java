@@ -1,11 +1,10 @@
 package hw6;
 
-import hw6.TestBase6;
-import pages.RegistrationPage;
+
 import org.junit.jupiter.api.Test;
 import pages.RegistrationPage6;
 
-import static com.codeborne.selenide.Selenide.$;
+
 
 public class HomeWork6 extends TestBase6 {
 
